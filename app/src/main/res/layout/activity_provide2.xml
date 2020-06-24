@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:gravity="top"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        tools:context="com.example.miniproject1234.provideActivity2">
+        <AutoCompleteTextView
+            android:id="@+id/start_point"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="staring point"
+            android:imeOptions="actionNext"
+            android:inputType="textNoSuggestions"
+            android:maxLines="1"
+
+            android:textIsSelectable="false"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+        <AutoCompleteTextView
+            android:id="@+id/destination_point"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="destination point"
+            android:imeOptions="actionNext"
+            android:inputType="textNoSuggestions"
+            android:maxLines="1"
+
+            android:textIsSelectable="false"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+        <AutoCompleteTextView
+            android:id="@+id/amount_bags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="noofbags"
+            android:imeOptions="actionNext"
+            android:inputType="textNoSuggestions"
+            android:maxLines="1"
+
+            android:textIsSelectable="false"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+        <AutoCompleteTextView
+            android:id="@+id/cost_rs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="cost per bag"
+            android:imeOptions="actionNext"
+            android:inputType="textNoSuggestions"
+            android:maxLines="1"
+
+            android:textIsSelectable="false"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editTextTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="time of travel"
+            android:imeOptions="actionUnspecified"
+            android:inputType="time"
+            android:maxLines="1"
+
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/search"
+            style="?android:textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+
+            android:onClick="search"
+
+            android:text="search"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingTop="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp"
+    tools:context="com.example.miniproject1234.MainActivity">
+
+
+    <AutoCompleteTextView
+        android:id="@+id/login_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:hint="emailid"
+        android:imeOptions="actionNext"
+        android:inputType="textEmailAddress"
+
+        android:maxLines="1"
+        android:textIsSelectable="false" />
+
+
+    <EditText
+        android:id="@+id/login_password"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_gravity="center"
+
+
+        android:hint="password"
+        android:imeOptions="actionUnspecified"
+        android:inputType="textPassword"
+
+        android:maxLines="1" />
+
+
+    <Button
+        android:id="@+id/login_sign_in_button"
+        style="?android:textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+
+        android:onClick="signInExistingUser"
+
+        android:text="login"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/login_register_button"
+        style="?android:textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+
+        android:onClick="registerNewUser"
+
+        android:text="register"
+        android:textStyle="bold" />
+
+</LinearLayout>
