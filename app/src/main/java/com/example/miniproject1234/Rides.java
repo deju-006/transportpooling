@@ -1,11 +1,11 @@
 package com.example.miniproject1234;
 
 public class Rides {
-            public String start,end,quantity,price,tme;
+            public String start,end,quantity,price,dat,tme;
             public Rides(){
 
     }
-  public Rides(String start,String end,String quantity,String price,String tme){
+  public Rides(String start,String end,String quantity,String price,String dat,String tme){
                 this.start=start;
                 this.end=end;
                 this.quantity=quantity;
@@ -43,6 +43,15 @@ public class Rides {
     public void setPrice(String price) {
         this.price = price;
     }
+
+    public  String getDat(){
+                return dat;
+    }
+
+     public void setDat(String dat){
+                this.dat=dat;
+     }
+
 
     public String getTme() {
         return tme;

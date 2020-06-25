@@ -66,6 +66,18 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editTextDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="date"
+            android:imeOptions="actionUnspecified"
+            android:maxLines="1"
+            android:textSize="22sp"
+
+
+            android:inputType="date" />
+
+        <EditText
             android:id="@+id/editTextTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -85,7 +97,7 @@
             android:layout_marginTop="16dp"
 
 
-            android:text="search"
+            android:text="add ride"
             android:textStyle="bold" />
 
     </LinearLayout>

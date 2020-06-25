@@ -25,6 +25,7 @@ public class provideActivity2 extends AppCompatActivity {
     private EditText time;
     private FirebaseAuth mAuth;
     private DatabaseReference mRideDatabase;
+    private EditText date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,9 @@ public class provideActivity2 extends AppCompatActivity {
         Destination = (AutoCompleteTextView) findViewById(R.id.destination_point);
         amount = (AutoCompleteTextView) findViewById(R.id.amount_bags);
         cost = (AutoCompleteTextView) findViewById(R.id.cost_rs);
+        date=(EditText) findViewById((R.id.editTextDate));
         time = (EditText) findViewById(R.id.editTextTime);
+
         save = (Button) findViewById(R.id.search);
 
         mRideDatabase = FirebaseDatabase.getInstance().getReference().child("Rides");
@@ -46,10 +49,11 @@ public class provideActivity2 extends AppCompatActivity {
                 final String end = Destination.getText().toString();
                 final String quantity = amount.getText().toString();
                 final String price = cost.getText().toString();
+                final String dat=date.getText().toString();
                 final String tme = time.getText().toString();
 
                 mAuth = FirebaseAuth.getInstance();
-                Rides r = new Rides(start, end, quantity, price, tme);
+                Rides r = new Rides(start, end, quantity, price, dat,tme);
                 mRideDatabase.child(mAuth.getCurrentUser().getUid()).setValue(r).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
