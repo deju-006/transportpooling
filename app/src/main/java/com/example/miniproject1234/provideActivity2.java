@@ -22,11 +22,11 @@ public class provideActivity2 extends AppCompatActivity {
     private AutoCompleteTextView amount;
     private AutoCompleteTextView cost;
     private Button save;
-    private EditText time;
+    private EditText tim;
     private FirebaseAuth mAuth;
     private DatabaseReference mRideDatabase;
-    private EditText date;
-
+    private EditText dat;
+    private EditText phon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +35,11 @@ public class provideActivity2 extends AppCompatActivity {
         Destination = (AutoCompleteTextView) findViewById(R.id.destination_point);
         amount = (AutoCompleteTextView) findViewById(R.id.amount_bags);
         cost = (AutoCompleteTextView) findViewById(R.id.cost_rs);
-        date=(EditText) findViewById((R.id.editTextDate));
-        time = (EditText) findViewById(R.id.editTextTime);
+        dat=(EditText) findViewById((R.id.editTextDate));
+        tim = (EditText) findViewById(R.id.editTextTime);
+        phon=(EditText) findViewById(R.id.editTextphone);
+
+
 
         save = (Button) findViewById(R.id.search);
 
@@ -49,11 +52,12 @@ public class provideActivity2 extends AppCompatActivity {
                 final String end = Destination.getText().toString();
                 final String quantity = amount.getText().toString();
                 final String price = cost.getText().toString();
-                final String dat=date.getText().toString();
-                final String tme = time.getText().toString();
+                final String date=dat.getText().toString();
+                final String time = tim.getText().toString();
+                final String phonenum=phon.getText().toString();
 
                 mAuth = FirebaseAuth.getInstance();
-                Rides r = new Rides(start, end, quantity, price, dat,tme);
+                Rides r = new Rides(start, end, quantity, price, date,time,phonenum);
                 mRideDatabase.child(mAuth.getCurrentUser().getUid()).setValue(r).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

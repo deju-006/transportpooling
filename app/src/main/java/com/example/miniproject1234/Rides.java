@@ -1,17 +1,22 @@
 package com.example.miniproject1234;
 
 public class Rides {
-            public String start,end,quantity,price,dat,tme;
+            public String start,end,quantity,price,dat,tme,ph;
             public Rides(){
 
     }
-  public Rides(String start,String end,String quantity,String price,String dat,String tme){
+  public Rides(String start,String end,String quantity,String price,String dat,String tme,String ph){
                 this.start=start;
                 this.end=end;
                 this.quantity=quantity;
                 this.price=price;
                 this.tme=tme;
+                this.dat=dat;
+                this.ph=ph;
   }
+
+
+
     public String getStart() {
         return start;
     }
@@ -59,5 +64,12 @@ public class Rides {
 
     public void setTme(String tme) {
         this.tme = tme;
+    }
+    public String getPh() {
+        return ph;
+    }
+
+    public void setPh(String ph) {
+        this.ph = ph;
     }
 }
