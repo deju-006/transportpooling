@@ -35,6 +35,18 @@ public class secondActivity extends AppCompatActivity  {
         finish();
         startActivity(i);
     }
+    public void bookedRides(View v) {
+        Intent i=new Intent(secondActivity.this,bookedActivity.class);
+        finish();
+        startActivity(i);
+
+    }
+   public void user(View v){
+       Intent i=new Intent(secondActivity.this,userActivity.class);
+       finish();
+       startActivity(i);
+
+   }
 
 
 

@@ -3,6 +3,7 @@ package com.example.miniproject1234;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.AutoCompleteTextView;
@@ -20,7 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class findActivity2 extends AppCompatActivity {
-    DatabaseReference df;
+    DatabaseReference df,bookRideDb;
+    FirebaseAuth mAuth;
     private AutoCompleteTextView start;
     private AutoCompleteTextView stop;
     private TextView space;
@@ -28,7 +30,7 @@ public class findActivity2 extends AppCompatActivity {
     private TextView number;
 
 
-    FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,27 +41,33 @@ public class findActivity2 extends AppCompatActivity {
         space = (TextView) findViewById(R.id.textView);
         time = (TextView) findViewById(R.id.textView2);
         number = (TextView) findViewById(R.id.textView3);
-        //String UserId=mAuth.getCurrentUser().getUid();
+
         df = FirebaseDatabase.getInstance().getReference().child("Rides");
 
+        mAuth=FirebaseAuth.getInstance();
+        String userId=mAuth.getCurrentUser().getUid();
+        bookRideDb = FirebaseDatabase.getInstance().getReference().child("Booked").child(userId);
 
     }
-    public void bookRide(View v){
+    Rides foundRides =null;
+    public void searchRide(View v){
         df.addListenerForSingleValueEvent(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-               // List<Rides> start = new ArrayList<>();
+
                 for (DataSnapshot startSnapshot : snapshot.getChildren()) {
                    Rides ride=startSnapshot.getValue(Rides.class);
+
                    if(start.getText().toString().equals(ride.getStart())&&stop.getText().toString().equals(ride.getEnd())){
                        space.setText(ride.getQuantity());
                        time.setText(ride.getTme());
                        number.setText(ride.getPh());
+                       foundRides=ride;
                        break;
+
                    }
                 }
-                //Log.d("f", start.get(0).getStart());
-
             }
 
             @Override
@@ -69,6 +77,14 @@ public class findActivity2 extends AppCompatActivity {
         });
 
     }
+    public void bookRide(View view){
+        Rides newRide=new Rides(start.getText().toString(),stop.getText().toString(),foundRides.getQuantity(),foundRides.getPrice(),foundRides.getDat(),foundRides.getTme(),foundRides.getPh());
+        bookRideDb.setValue(newRide);
+        Intent i=new Intent(findActivity2.this,secondActivity.class);
+        startActivity(i);
+
+    }
+
 
 }
 

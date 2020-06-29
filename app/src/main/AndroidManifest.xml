@@ -9,21 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".userActivity" />
+        <activity android:name=".bookedActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".secondActivity"></activity>
-        <activity android:name=".registerActivity"/>
-        <activity android:name=".provideActivity2"/>
-        <activity android:name=".findActivity2"/>
-
-
-
-
+        <activity android:name=".secondActivity" />
+        <activity android:name=".registerActivity" />
+        <activity android:name=".provideActivity2" />
+        <activity android:name=".findActivity2" />
     </application>
 
 </manifest>
